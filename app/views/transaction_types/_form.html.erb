@@ -1,0 +1,27 @@
+<%= form_with(model: transaction_type) do |form| %>
+  <% if transaction_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction_type.errors.count, "error") %> prohibited this transaction_type from being saved:</h2>
+
+      <ul>
+        <% transaction_type.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :label %>
+    <%= form.text_field :label %>
+  </div>
+
+  <div class="field">
+    <%= form.label :handle %>
+    <%= form.text_field :handle %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
