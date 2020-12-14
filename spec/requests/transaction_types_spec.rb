@@ -16,11 +16,11 @@ RSpec.describe "/transaction_types", type: :request do
   # TransactionType. As you add validations to TransactionType, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { label: 'Rent' }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { label: nil }
   }
 
   describe "GET /index" do
@@ -85,15 +85,8 @@ RSpec.describe "/transaction_types", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { label: 'Buy' }
       }
-
-      it "updates the requested transaction_type" do
-        transaction_type = TransactionType.create! valid_attributes
-        patch transaction_type_url(transaction_type), params: { transaction_type: new_attributes }
-        transaction_type.reload
-        skip("Add assertions for updated state")
-      end
 
       it "redirects to the transaction_type" do
         transaction_type = TransactionType.create! valid_attributes

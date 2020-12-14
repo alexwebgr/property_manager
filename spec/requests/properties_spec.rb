@@ -15,12 +15,27 @@
 RSpec.describe "/properties", type: :request do
   # Property. As you add validations to Property, be sure to
   # adjust the attributes here as well.
+  let(:user) {create(:user)}
+  let(:transaction_type) {create(:transaction_type)}
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      title: 'new ad',
+      area: 'area 51',
+      placeId: 'randomString',
+      price: 120,
+      user_id: user.id,
+      transaction_type_id: transaction_type.id
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      title: 'new ad',
+      area: nil,
+      placeId: 'randomString',
+      price: 120
+    }
   }
 
   describe "GET /index" do
@@ -85,15 +100,15 @@ RSpec.describe "/properties", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          title: 'another ad',
+          area: 'area 52',
+          placeId: 'randomString2',
+          price: 150,
+          user_id: user.id,
+          transaction_type_id: transaction_type.id
+        }
       }
-
-      it "updates the requested property" do
-        property = Property.create! valid_attributes
-        patch property_url(property), params: { property: new_attributes }
-        property.reload
-        skip("Add assertions for updated state")
-      end
 
       it "redirects to the property" do
         property = Property.create! valid_attributes
