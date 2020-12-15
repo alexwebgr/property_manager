@@ -7,6 +7,13 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;
+import "bootstrap";
+import "choices.js/public/assets/scripts/choices.min";
+import "js/properties";
+
+import 'stylesheets/application'
 
 Rails.start()
 Turbolinks.start()
