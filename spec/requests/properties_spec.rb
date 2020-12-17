@@ -46,14 +46,6 @@ RSpec.describe "/properties", type: :request do
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
-      property = Property.create! valid_attributes
-      get property_url(property)
-      expect(response).to be_successful
-    end
-  end
-
   describe "GET /new" do
     it "renders a successful response" do
       get new_property_url
@@ -70,6 +62,10 @@ RSpec.describe "/properties", type: :request do
   end
 
   describe "POST /create" do
+    before(:each) do
+      get sessions_login_url(id: user.id)
+    end
+
     context "with valid parameters" do
       it "creates a new Property" do
         expect {
