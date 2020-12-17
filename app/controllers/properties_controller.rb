@@ -1,10 +1,10 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :set_property, only: [:edit, :update, :destroy]
 
   # GET /properties
   # GET /properties.json
   def index
-    @properties = Property.all
+    @properties = current_user.properties.all
   end
 
   # GET /properties/new
@@ -26,7 +26,7 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
-        format.json { render :show, status: :created, location: @property }
+        format.json { render :index, status: :created, location: @property }
       else
         format.html { render :new }
         format.json { render json: @property.errors, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       if @property.update(property_params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
-        format.json { render :show, status: :ok, location: @property }
+        format.json { render :index, status: :ok, location: @property }
       else
         format.html { render :edit }
         format.json { render json: @property.errors, status: :unprocessable_entity }

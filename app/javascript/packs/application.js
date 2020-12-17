@@ -10,7 +10,7 @@ import "channels"
 import JQuery from 'jquery';
 window.$ = window.JQuery = JQuery;
 import "bootstrap";
-import "choices.js/public/assets/scripts/choices.min";
+import "lodash";
 import "js/properties";
 
 import 'stylesheets/application'
