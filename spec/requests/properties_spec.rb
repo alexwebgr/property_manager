@@ -40,6 +40,7 @@ RSpec.describe "/properties", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
+      get sessions_login_url(id: user.id)
       Property.create! valid_attributes
       get properties_url
       expect(response).to be_successful
