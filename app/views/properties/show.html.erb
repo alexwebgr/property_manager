@@ -26,13 +26,8 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @property.user_id %>
-</p>
-
-<p>
   <strong>Transaction type:</strong>
-  <%= @property.transaction_type_id %>
+  <%= @property.transaction_type.label %>
 </p>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |

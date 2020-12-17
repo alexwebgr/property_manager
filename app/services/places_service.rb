@@ -4,6 +4,11 @@ class PlacesService
   def initialize
   end
 
+  def search(input)
+    query(input)
+  end
+
+  private
   def query(input)
     uri = URI(BASE_URL)
     params = { input: input }
@@ -11,10 +16,6 @@ class PlacesService
 
     res = Net::HTTP.get_response(uri)
 
-    res.body
-  end
-
-  def search(input)
-    query(input)
+    { items: res.body, status: res.code }
   end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'places/search'
   get 'sessions/login'
   resources :properties
   resources :transaction_types

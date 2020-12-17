@@ -10,43 +10,37 @@
       </ul>
     </div>
   <% end %>
+  <%= form.hidden_field :placeId %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control', maxlength: 155 %>
   </div>
 
-  <div class="field">
-    <%= form.label :area %>
-    <%= form.text_field :area %>
+  <div class="form-group">
+    <%= form.label :transaction_type_id, class: 'd-block' %>
+    <%= form.collection_select(:transaction_type_id, TransactionType.all, :id, :label, {}, class: 'custom-select') %>
   </div>
 
-  <div class="field">
-    <%= form.label :placeId %>
-    <%= form.text_field :placeId %>
+  <div class="form-group">
+    <%= form.label :area, class: 'd-block' %>
+    <%= form.text_field :area, class: 'form-control' %>
+    <div class="list-group" id=areas-dd>
+
+    </div>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :extra_description %>
-    <%= form.text_area :extra_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :transaction_type_id %>
-    <%= form.text_field :transaction_type_id %>
+    <%= form.text_area :extra_description, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
