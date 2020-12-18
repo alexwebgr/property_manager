@@ -21,11 +21,11 @@
   <tbody>
     <% @properties.each do |property| %>
       <tr>
-        <td><%= property.title %></td>
+        <td class="text-break"><%= property.title %></td>
         <td><%= property.area %></td>
-        <td><%= property.placeId %></td>
+        <td class="text-break"><%= property.placeId %></td>
         <td><%= property.price %></td>
-        <td><%= property.extra_description %></td>
+        <td class="text-break"><%= property.extra_description %></td>
         <td><%= property.transaction_type.label %></td>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>
         <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>

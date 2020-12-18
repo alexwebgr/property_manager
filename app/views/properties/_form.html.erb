@@ -14,7 +14,7 @@
 
   <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control', maxlength: 155 %>
+    <%= form.text_field :title, class: 'form-control', placeholder: 'Enter the title of the ad', maxlength: 155 %>
   </div>
 
   <div class="form-group">
@@ -24,7 +24,7 @@
 
   <div class="form-group">
     <%= form.label :area, class: 'd-block' %>
-    <%= form.text_field :area, class: 'form-control' %>
+    <%= form.text_field :area, class: 'form-control', placeholder: 'Enter the name of the area' %>
     <div class="list-group" id=areas-dd>
 
     </div>
@@ -32,12 +32,12 @@
 
   <div class="form-group">
     <%= form.label :price %>
-    <%= form.number_field :price, class: 'form-control' %>
+    <%= form.number_field :price, class: 'form-control', placeholder: 'Enter the total price' %>
   </div>
 
   <div class="form-group">
     <%= form.label :extra_description %>
-    <%= form.text_area :extra_description, class: 'form-control' %>
+    <%= form.text_area :extra_description, class: 'form-control', placeholder: 'Optionally add any relevant info' %>
   </div>
 
   <div class="actions">
