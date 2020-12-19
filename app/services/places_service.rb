@@ -16,6 +16,10 @@ class PlacesService
 
     res = Net::HTTP.get_response(uri)
 
-    { items: res.body, status: res.code }
+    if res.code.to_i != 200..399
+      return { items: [], error: res.body, status: res.code.to_i }
+    end
+
+    { items: res.body, status: res.code.to_i }
   end
 end
