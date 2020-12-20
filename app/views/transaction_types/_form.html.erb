@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :label %>
-    <%= form.text_field :label %>
+    <%= form.text_field :label, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :handle %>
-    <%= form.text_field :handle %>
+    <%= form.text_field :handle, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
+    <%= link_to 'Back', transaction_types_path, class: 'btn btn-secondary' %>
   </div>
 <% end %>

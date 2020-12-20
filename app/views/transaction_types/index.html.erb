@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Transaction Types</h1>
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Transaction Types</h1>
+  <%= link_to 'New Transaction Type', new_transaction_type_path, class: 'btn btn-primary' %>
+</div>
 
-<table>
-  <thead>
+<table class="table table-striped">
+  <thead class="thead-light">
     <tr>
       <th>Label</th>
       <th>Handle</th>
@@ -23,7 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Transaction Type', new_transaction_type_path %>
