@@ -15,13 +15,14 @@ $(document).on("turbolinks:load", function () {
 });
 
 function retrieve_areas(event) {
+    let minQueryStringLength = 3;
+    let query = event.target.value;
+
     if (!keyAllowed(event.code)) {
         return false;
     }
 
-    let query = event.target.value;
-
-    if(query.length < 3) {
+    if(query.length < minQueryStringLength) {
         return false;
     }
 
@@ -40,7 +41,7 @@ function retrieve_areas(event) {
             $('#areas-dd').html(html).show();
         })
         .fail(function(response) {
-            $('#areas-dd').html(response.statusText).show();
+            $('#areas-dd').html(`Unable to retrieve results. ${response.statusText}`).show();
         });
 }
 
