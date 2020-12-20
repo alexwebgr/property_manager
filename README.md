@@ -64,5 +64,9 @@ to select a different one and add properties under their account.
   a digital agency that has produced numerous remarkable gems and has undoubtedly influenced the way we write and test code.
 * In a real-life scenario there is probably a frontend framework being used like react or vue which has their own test suite as well.
 * making form validation more user-friendly and by not navigating away and adding the error messages next to the respective field. 
-  jquery-validate would be probably the way to go on this one.  
+  jquery-validate would be probably the way to go on this one.
+  
+* an activity indicator for area field to let the user know that a request is in progress
+* a different way of serving the results from the area endpoint, for example with server-side rendering from a rails controller
+that ready ready-made html ready to attached to a DOM element. 
 
