@@ -13,17 +13,23 @@
   <%= form.hidden_field :placeId %>
 
   <div class="form-group">
-    <%= form.label :title %>
+    <%= form.label :title do |label| %>
+      <%= label %> *
+    <% end %>
     <%= form.text_field :title, class: 'form-control', placeholder: 'Enter the title of the ad', maxlength: 155 %>
   </div>
 
   <div class="form-group">
-    <%= form.label :transaction_type_id, class: 'd-block' %>
+    <%= form.label :transaction_type_id, class: 'd-block' do |label| %>
+      <%= label %> *
+    <% end %>
     <%= form.collection_select(:transaction_type_id, TransactionType.all, :id, :label, {}, class: 'custom-select') %>
   </div>
 
   <div class="form-group">
-    <%= form.label :area, class: 'd-block' %>
+    <%= form.label :area, class: 'd-block' do |label| %>
+      <%= label %> *
+    <% end %>
     <%= form.text_field :area, class: 'form-control', placeholder: 'Enter the name of the area' %>
     <div class="list-group" id=areas-dd>
 
@@ -31,12 +37,16 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :price %>
+    <%= form.label :price do |label| %>
+      <%= label %> *
+    <% end %>
     <%= form.number_field :price, class: 'form-control', placeholder: 'Enter the total price' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :extra_description %>
+    <%= form.label :extra_description do |label| %>
+      <%= label %> <span class="text-muted">(optional)</span>
+    <% end %>
     <%= form.text_area :extra_description, class: 'form-control', placeholder: 'Optionally add any relevant info' %>
   </div>
 

@@ -16,10 +16,17 @@ class PlacesService
 
     res = Net::HTTP.get_response(uri)
 
-    if res.code.to_i != 200..399
-      return { items: [], error: res.body, status: res.code.to_i }
+    unless valid_json?(res.body)
+      return { items: [], status: 422 }
     end
 
     { items: res.body, status: res.code.to_i }
+  end
+
+  def valid_json?(string)
+    JSON.parse(string)
+    true
+  rescue Exception => e
+    return false
   end
 end

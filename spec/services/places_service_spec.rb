@@ -18,9 +18,9 @@ RSpec.describe PlacesService, type: :service do
       input = 'noncity'
       stub_request(:get, PlacesService::BASE_URL)
         .with(query: {"input" => input})
-        .to_return(status: 200, body: [])
+        .to_return(status: 200, body: '[]')
 
-      expect(subject.search(input)).to eq({ items: [], status: 200 })
+      expect(subject.search(input)).to eq({ items: '[]', status: 200 })
     end
 
     it 'returns an error message if the service is down' do
@@ -28,9 +28,9 @@ RSpec.describe PlacesService, type: :service do
       invalid_response_500 = file_fixture('places_service_500_response.html').read
       stub_request(:get, PlacesService::BASE_URL)
         .with(query: {"input" => input})
-        .to_return(status: 500, body: invalid_response_500)
+        .to_return(status: 200, body: invalid_response_500)
 
-      expect(subject.search(input)).to eq({ items: [], error: invalid_response_500, status: 500 })
+      expect(subject.search(input)).to eq({ items: [], status: 422 })
     end
   end
 end

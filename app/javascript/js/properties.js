@@ -1,5 +1,5 @@
 $(document).on("turbolinks:load", function () {
-    $('#property_area').on('keyup', _.debounce(retrieve_areas, 1000));
+    $('#property_area').on('keyup', _.debounce(retrieve_areas, 1200));
 
     $('#areas-dd').on('click', 'button', function () {
         $('#property_area').val($(this).text());
@@ -25,21 +25,27 @@ function retrieve_areas(event) {
         return false;
     }
 
-    $.get(`/places/search?input=${query}`, function (response) {
-        let html = '';
-        $.each(response, function (i, value) {
-            html  += `<button type="button" class="list-group-item list-group-item-action" data-placeId="${value.placeId}">${value.mainText} - ${value.secondaryText}</button>`;
-        });
+    $.get(`/places/search?input=${query}`)
+        .done(function(response) {
+            let html = '';
 
-        $('#areas-dd')
-            .html(html)
-            .show()
-        ;
-    });
+            if(response.length === 0) {
+                html = 'No results found'
+            } else {
+                $.each(response, function (i, value) {
+                    html  += `<button type="button" class="list-group-item list-group-item-action" data-placeId="${value.placeId}">${value.mainText} - ${value.secondaryText}</button>`;
+                });
+            }
+
+            $('#areas-dd').html(html).show();
+        })
+        .fail(function(response) {
+            $('#areas-dd').html(response.statusText).show();
+        });
 }
 
 function keyAllowed(key) {
-    const regex = RegExp('Key*|Escape|Delete', 'i');
+    const regex = RegExp('Key*|Backspace|Space|Delete', 'i');
 
     return regex.test(key);
 }
