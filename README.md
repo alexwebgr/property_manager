@@ -4,7 +4,7 @@
 Create an app to manage properties with an area autocomplete feature
 
 ## The approach
-Created a basic rails app with a touch of javascript. Assuming there is a frontend framework used, I focused more on the rails / ruby side of things. 
+Created a basic rails app with a touch of javascript. Assuming there is a frontend framework being used, I focused more on the rails / ruby side of things. 
 
 ### The stack
 * Ruby 2.7.0
@@ -68,5 +68,5 @@ to select a different one and add properties under their account.
   
 * an activity indicator for area field to let the user know that a request is in progress
 * a different way of serving the results from the area endpoint, for example with server-side rendering from a rails controller
-that ready ready-made html ready to attached to a DOM element. 
+that returns ready-made html to be attached to a DOM element. 
 
